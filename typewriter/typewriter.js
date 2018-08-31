@@ -12,13 +12,12 @@ btn.addEventListener("click", function() {
 
 function loop() {
   N = 0;
-  setInterval(function() {
+  let loopInterval = setInterval(function type() {
     if (N <= inputText.length) {
       let newText = inputText.substring(0, N);
       document.querySelector("#typewriter").textContent = newText;
       N++;
     }
+    if (N > inputText.length) clearInterval(loopInterval);
   }, 400);
-  if (N > inputText.length) {
-  }
 }
