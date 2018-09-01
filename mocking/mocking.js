@@ -1,24 +1,22 @@
 "use strict";
 let original = document.querySelector("#original").textContent;
-let mocking = document.querySelector("#mocking");
-let character;
+let character = "";
 window.addEventListener("DOMContentLoaded", loopThroughString);
 function loopThroughString() {
-  let N = 0;
-
+  let N = 1;
   while (N <= original.length) {
-    let randomValue = getRandomNr(1, 3);
+    let randomValue = getRandomNr(0, 2);
     let newText = original.substring(0, N);
     assignRandomCaps(randomValue, newText, N);
     N++;
   }
-  mocking.textContent = character;
+  document.querySelector("#mocking").textContent = character;
 }
 
 function assignRandomCaps(randomValue, newText, N) {
-  if (randomValue == 1) {
+  if (randomValue == 0) {
     character += newText.charAt(N - 1).toUpperCase();
-  } else if (randomValue == 2) {
+  } else if (randomValue == 1) {
     character += newText.charAt(N - 1).toLowerCase();
   }
 }
