@@ -24,14 +24,8 @@ function init() {
 }
 
 function loop() {
-  position = 0;
   shiftAndPush();
-
-  let joinedArr = array.join("");
-  const newText = joinedArr.substring(position, position + 40);
-
-  // display the new text
-  document.querySelector("#scroller").textContent = newText;
+  displayArray();
 
   // loop the loop
   setTimeout(loop, 100);
@@ -39,4 +33,10 @@ function loop() {
 function shiftAndPush() {
   let firstItem = array.shift();
   array.push(firstItem);
+}
+function displayArray() {
+  position = 0;
+  let joinedArr = array.join("");
+  const newText = joinedArr.substring(position, position + 40);
+  document.querySelector("#scroller").textContent = newText;
 }
