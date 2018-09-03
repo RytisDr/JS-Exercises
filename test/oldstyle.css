@@ -1,0 +1,23 @@
+@font-face {
+    /* font from https://www.dafont.com/commodore-64-pixelized.font */
+    font-family: 'c64';
+    src: url('commodore_pixelized_v1.2-webfont.woff2') format('woff2'),
+         url('commodore_pixelized_v1.2-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+body {
+    font-family: c64;
+    background-color: #483aaa;
+    color: #867ade;
+
+    margin: 0;
+    border: 64px solid #867ade;
+    min-width: 40em;
+    min-height: 25em;
+}
+
+#scroller {
+    white-space: nowrap;
+}
