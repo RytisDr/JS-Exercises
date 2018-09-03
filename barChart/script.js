@@ -1,34 +1,35 @@
 "use strict";
 window.addEventListener("DOMContentLoaded", init);
-let divs = document.querySelectorAll("div");
-let divArray = Array.from(divs);
+let divs;
+let divArray;
 let randomHeightValue;
+let firstItem;
 function init() {
+  divs = null;
+  divArray = Array.from(document.querySelectorAll("div"));
   setTimeout(loop, 100);
 }
 
 function loop() {
-  randomHeightValue = randomNumber(0, 100);
+  let randomHeightValue = randomNumber(0, 100);
 
   shiftAndPush();
-  scroll();
+  firstItem.style.height = randomHeightValue + "px";
+  displayArray();
   setTimeout(loop, 100);
 }
 
 function shiftAndPush() {
-  let firstItem = divArray.shift();
-  randomDivHeight(firstItem);
+  firstItem = divArray.shift();
   divArray.push(firstItem);
 }
 
 function randomNumber(min, max) {
   return Math.random() * (max - min) + min;
 }
-function randomDivHeight(firstItem) {
-  firstItem.style.height = randomHeightValue + "px";
-}
-function scroll() {
+function displayArray() {
   let joinedArray = divArray.join("");
   let newArray = joinedArray.substring(0, 40);
   divs = newArray;
+  console.log(newArray);
 }
