@@ -1,8 +1,8 @@
 div {
   width: 30px;
-  background-color: black;
   margin: 5px;
 }
+
 body {
   display: flex;
   align-items: baseline;
