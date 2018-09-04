@@ -10,7 +10,7 @@ function init() {
   setTimeout(loop, 300);
 }
 function loop() {
-  barHeight = randomNumber(0, 100);
+  barHeight = Math.random() * 100;
   shiftAndPush();
   appendItem();
 
@@ -34,6 +34,7 @@ function sizeAndColor() {
 function appendItem() {
   document.querySelector("body").appendChild(firstItem);
 }
-function randomNumber(min, max) {
+///IF A NUMBER THAT IS NEEDED IS NOT FROM 0/////////
+/* function randomNumber(min, max) {
   return Math.random() * (max - min) + min;
-}
+} */
