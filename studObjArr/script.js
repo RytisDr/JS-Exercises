@@ -21,7 +21,11 @@ const students = [];
 window.addEventListener("DOMContentLoaded", createStudents);
 
 function createStudents() {
-  loop();
+  ///WITH FOR LOOP
+  //loop();
+  //WITH FOR EACH LOOP
+  names.forEach(pushToArrays);
+
   console.table(students);
   // ... TODO: build this function ...
 }
@@ -38,11 +42,18 @@ let nameObject = {
     this.lastName = fullName.substring(firstSpace + 1);
   }
 };
-
-function loop() {
+//WITH FOR EACH LOOP
+function pushToArrays(name) {
+  const newObject = Object.create(nameObject);
+  newObject.splitName(name);
+  students.push(newObject);
+}
+//WITH FOR LOOP
+/* function loop() {
   for (let i = 0; i < names.length; i++) {
     const newObject = Object.create(nameObject);
     newObject.splitName(names[i]);
     students.push(newObject);
   }
 }
+ */
