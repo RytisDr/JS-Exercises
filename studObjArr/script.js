@@ -48,11 +48,12 @@ let nameObject = {
 function pushToArrays(name) {
   const newObject = Object.create(nameObject);
   newObject.splitName(name);
-  students.push(newObject);
+
   const randomHouse = Object.keys(houses)[
     Math.floor(Math.random() * Object.keys(houses).length)
   ];
-  students.push(randomHouse);
+  newObject.house = randomHouse;
+  students.push(newObject);
 }
 //WITH FOR LOOP
 /* function loop() {
