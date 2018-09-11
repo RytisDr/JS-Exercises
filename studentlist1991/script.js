@@ -1,7 +1,7 @@
 "use strict";
 window.addEventListener("DOMContentLoaded", init);
 
-let studentTemp = {
+let studentPrototype = {
   firstName: "",
   lastName: "",
   house: "",
@@ -13,9 +13,13 @@ let studentTemp = {
     this.firstName = fullName.substring(0, firstSpace);
     this.lastName = fullName.substring(firstSpace + 1);
   }
+  /*  assignHouse() {
+    this.house = getStudentHouse();
+  } */
 };
 
-let allStudents = [];
+let students = [];
+let allHouses = [];
 function init() {
   fetch("students.json")
     .then(e => {
@@ -24,40 +28,39 @@ function init() {
     .then(allStudentsInHouses);
 }
 
+/* function parseJson(jsonData){
+  jsonData.forEach(house => {
+    let houseStudents = house;
+  });
+} */
+
 function allStudentsInHouses(house) {
-  let gatherStudents =
+  allHouses = [Object.keys(house)];
+
+  let gryffindorStudents = Array.from(house.Gryffindor);
+  let slytherinStudents = Array.from(house.Slytherin);
+
+  console.log(gryffindorStudents);
+  /* let gatherStudents =
     house.Gryffindor +
     "," +
-    house.Hufflepuff +
+    house.Gryffindor +
     "," +
     house.Ravenclaw +
     "," +
-    house.Slytherin;
+    house.Slytherin; */
+  //let studentSplit = gatherStudents.split(",");
 
-  let studentSplit = gatherStudents.split(",");
-  for (let i = 0; i < studentSplit.length; i++) {
-    let newObj = Object.create(studentTemp);
-    newObj.splitName(studentSplit[i]);
+  let newObj = Object.create(studentPrototype);
+  //newObj.splitName(studentSplit[i]);
+  //newObj.assignHouse(house);
+  //let studentsHouse = assignHouse(studentSplit[i], house);
+  students.push(newObj);
 
-    /*    if (newObj == studentsInHouse(house.Gryffindor)) {
-      newObj.house = Gryffindor;
-    } */
-
-    /* let TheHouse = assignHouse();
-    newObj.house = TheHouse; */
-    allStudents.push(newObj);
-  }
-  console.log(allStudents);
+  //console.log(students);
 }
-
-function sortByFN() {}
-function sortByLN() {}
-function filterByHouse() {}
-function filterAndSort() {}
-function returnAList() {}
-
-function studentsInHouse(house) {
-  const houseStudents = allStudents.filter(inHouse);
+/* function studentsInHouse(house) {
+  const houseStudents = students.filter(inHouse);
   function inHouse(student) {
     if (student.house === house) {
       return true;
@@ -67,3 +70,4 @@ function studentsInHouse(house) {
   }
   return houseStudents;
 }
+ */
