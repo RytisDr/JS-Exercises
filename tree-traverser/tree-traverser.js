@@ -8,6 +8,10 @@ function log1() {
     //console.log(attr);
     console.log("element: " + element.nodeName);
     //    console.log(element.attributes);
+
+    /* for(let key in object) {
+      // executes the body for each key among object properties
+    } */
     if (element.attributes.length > 0) {
       for (let i = 0; i < element.attributes.length; i++) {
         console.log(

@@ -5,11 +5,54 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Studentlist 1991</title>
+    <title>Students 1991</title>
 </head>
 
 <body>
+
+    <h1> Studentlist 1991</h1>
+    <section id="buttons">
+        <div id="sorting">
+            Sort by:
+            <button>First Name</button>
+            <button>Last Name</button>
+            <button>House</button>
+        </div>
+        <div id="filters">
+            Filter:
+            <a href="#" data-filter="all">all</a>
+            <a href="#" data-filter="Gryffindor">Gryffindor</a>
+            <a href="#" data-filter="Hufflepuff">Hufflepuff</a>
+            <a href="#" data-filter="Ravenclaw">Ravenclaw</a>
+            <a href="#" data-filter="Slytherin">Slytherin</a>
+        </div>
+    </section>
+    <table id="student-list">
+        <thead>
+            <tr>
+                <th>First Name</td>
+                <th>Last Name</td>
+                <th>House</td>
+                <td>Delete</td>
+            </tr>
+        </thead>
+        <tbody>
+
+        </tbody>
+    </table>
+    <main></main>
+    <template id="template">
+        <tr>
+            <td data-firstname>FIRSTNAME</td>
+            <td data-lastname>LASTNAME</td>
+            <td data-house>HOUSE</td>
+            <td><button>Delete</button></td>
+        </tr>
+    </template>
+
+
     <script src="script.js"></script>
+    <script src="frontend.js"></script>
 </body>
 
 </html>
