@@ -64,8 +64,43 @@ function addUserArticle(user) {
   clone
     .querySelector("article button")
     .addEventListener("click", function clickToRMV() {
-      remove(user.id, clone);
+      remove(user.id);
       this.removeEventListener("click", clickToRMV);
     });
+  clone.querySelector("#edit").addEventListener("click", function editClick() {
+    editPost(user);
+  });
   document.querySelector("body").appendChild(clone);
+}
+//edit a post
+function editPost(post) {
+  //to edit
+  let userName = document.querySelector(`[data-id="${post.id}"] #fullName`);
+  let userComment = document.querySelector(`[data-id="${post.id}"] #comment`);
+  let editBtn = document.querySelector(`[data-id="${post.id}"] #edit`);
+  let editPrompt = document.querySelector(`[data-id="${post.id}"] #editPrompt`);
+  userName.contentEditable = "true";
+  userComment.contentEditable = "true";
+  editPrompt.style.display = "inherit";
+  editBtn.textContent = "Post";
+  //to put
+  editBtn.addEventListener("click", function clickPostEdit() {
+    editPrompt.style.display = "none";
+    editBtn.textContent = "Edit";
+    userName.contentEditable = "false";
+    userComment.contentEditable = "false";
+    const payload = {
+      name: userName.textContent,
+      comment: userComment.textContent
+    };
+    const id = post.id;
+    const postData = JSON.stringify(payload);
+    fetch(endp + id, {
+      method: "put",
+      headers: {
+        "Content-Type": "application/json; charset=utf-8"
+      },
+      body: postData
+    }).then(res => res.json());
+  });
 }

@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>DeleteComents</title>
+    <title>Ministry of Truth</title>
     <style>
         img{
         width: 50px;
@@ -19,6 +19,10 @@
     }
     p{
         padding: 5px;
+    }
+    #editPrompt{
+        display: none;
+        color: red;
     }
     </style>
 </head>
@@ -35,7 +39,9 @@
                 <h1 id="createdAt"></h1>
             </header>
             <p id="comment"></p>
-            <button>Delete</button>
+            <button id="delete">Delete</button>
+            <button id="edit">Edit</button>
+            <p id="editPrompt">Now you can edit the content.</p>
         </article>
     </template>
     <script src="script.js"></script>
