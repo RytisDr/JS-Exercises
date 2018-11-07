@@ -6,12 +6,31 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>DeleteComents</title>
+    <style>
+        img{
+        width: 50px;
+    }
+    h1{
+        margin: 10px;
+    }
+    article{
+        margin: 20px 0px 20px 0px;
+        border: 2px solid black;
+    }
+    p{
+        padding: 5px;
+    }
+    </style>
 </head>
 
 <body>
+    <input type="text" name="User" id="userInput" placeholder="User ID">
+    <input type="text" id="commentInput" placeholder="Comment">
+    <button id="post">Post</button>
     <template>
         <article>
             <header>
+                <img src="#" alt="User Profile Photo">
                 <h1 id="fullName"></h1>
                 <h1 id="createdAt"></h1>
             </header>
