@@ -77,16 +77,19 @@ function editPost(post) {
   //to edit
   let userName = document.querySelector(`[data-id="${post.id}"] #fullName`);
   let userComment = document.querySelector(`[data-id="${post.id}"] #comment`);
+  let postEditBtn = document.querySelector(`[data-id="${post.id}"] #postEdit`);
   let editBtn = document.querySelector(`[data-id="${post.id}"] #edit`);
   let editPrompt = document.querySelector(`[data-id="${post.id}"] #editPrompt`);
   userName.contentEditable = "true";
   userComment.contentEditable = "true";
   editPrompt.style.display = "inherit";
-  editBtn.textContent = "Post";
+  postEditBtn.style.display = "inherit";
+  editBtn.style.display = "none";
   //to put
-  editBtn.addEventListener("click", function clickPostEdit() {
+  postEditBtn.addEventListener("click", function clickPostEdit() {
+    editBtn.style.display = "inherit";
+    postEditBtn.style.display = "none";
     editPrompt.style.display = "none";
-    editBtn.textContent = "Edit";
     userName.contentEditable = "false";
     userComment.contentEditable = "false";
     const payload = {
