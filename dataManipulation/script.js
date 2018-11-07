@@ -11,9 +11,12 @@ function showData(users) {
     let clone = template.cloneNode(true);
     clone.querySelector("#fullName").textContent = user.name;
     clone.querySelector("article").dataset.id = user.id;
-    clone.querySelector("article button").addEventListener("click", function() {
-      remove(user.id);
-    });
+    clone
+      .querySelector("article button")
+      .addEventListener("click", function clickToRMV() {
+        remove(user.id, clone);
+        this.removeEventListener("click", clickToRMV);
+      });
     document.querySelector("body").appendChild(clone);
   });
 }
@@ -24,6 +27,9 @@ function remove(id) {
   })
     .then(res => res.json())
     .then(data => {
-      console.log("data was deleted", data);
+      removeUserArticle(data);
     });
+}
+function removeUserArticle(user) {
+  document.querySelector(`[data-id="${user.id}"]`).remove();
 }
