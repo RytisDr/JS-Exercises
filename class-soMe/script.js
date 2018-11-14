@@ -7,6 +7,25 @@ const statusesEndP =
 let myID = "86279536-58f3-48bf-bb3c-e90b3253da6e";
 const template = document.querySelector("template").content;
 
+// post a post
+document.querySelector("#postBtn").addEventListener("click", () => {
+  if (document.querySelector("#messageInput").value) {
+    postMessage(document.querySelector("#messageInput").value);
+  }
+});
+function postMessage(value) {
+  let payload = { text: value, userID: myID };
+  fetch("http://5bea7942b854d10013109247.mockapi.io/sm/v1/statusses/", {
+    method: "post",
+    body: JSON.stringify(payload),
+    headers: { Accept: "application/json", "Content-type": "application/json" }
+  })
+    .then(res => res.json())
+    .then(data => {
+      fetchAndShow(usersEndP);
+    });
+}
+
 ///post me
 /* let payload = { name: "Rytis", ID: "86279536-58f3-48bf-bb3c-e90b3253da6e" };
 
@@ -72,5 +91,7 @@ function removeDOMUser(user) {
 function showStatuses(statuses) {
   statuses.forEach(status => {});
 }
-fetchAndShow(usersEndP);
-fetchAndShow(statusesEndP);
+window.addEventListener("DOMContentLoaded", function() {
+  fetchAndShow(usersEndP);
+  fetchAndShow(statusesEndP);
+});
